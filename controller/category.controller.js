@@ -1,5 +1,7 @@
 const category = require('../models/category.model');
 const {validationResult} = require('express-validator');
+const port =process.env.PORT || 5000;
+
 
 exports.showlist = (request,response)=>{
     category.find()
@@ -40,7 +42,7 @@ exports.delete = (request,response)=>{
  }
 
 exports.categoryadd = (request,response)=>{
-console.log(request.body);
+// console.log(request.body);
     // const errors = validationResult(request);
     // if(!errors.isEmpty())
     // // console.log(errors);
@@ -49,7 +51,7 @@ console.log(request.body);
       category.create({
           
         categoryName: request.body.categoryName,
-        categoryImageUrl :"http://localhost:4000/images"+request.file.filename
+        categoryImageUrl :"https://angularapi-by-taniya.herokuapp.com/images"+request.file.filename
         
     
       })
